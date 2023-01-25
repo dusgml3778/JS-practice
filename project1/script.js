@@ -29,17 +29,16 @@ function isValidEmail(email){
     array = email.value.split('@');
 
       if(array[1].indexOf('.') != -1) {
-    
-        alert('Correct')
+        
+        showSuccess(email);
     
       } else {
     
-        alert('!!')
-    
+        showError(email, "이메일 형식에 어긋납니다.")   
       }
 
   } else {
-      alert("!!");
+        showError(email, "이메일 형식에 어긋납니다.")
 
   }
 }
@@ -58,7 +57,6 @@ form.addEventListener('submit', function (e) {
     showError(email, "Email is required");
   } else {
     isValidEmail(email)
-    showSuccess(email);
   }
 
   if (password.value === '') {
