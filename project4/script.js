@@ -37,4 +37,29 @@ function addData(obj) {
 
   data.push(obj)
 
+  updateDom();
+
+}
+
+// Update Dom
+function updateDom(provideData = data){
+
+  //Clear main div
+  main.innerHTML = '<h2><strong>Person</strong> Wealth</h2>';
+
+
+  provideData.forEach(function(item){
+
+    const el = document.createElement('div');
+    el.classList.add('person')
+    el.innerHTML = `<strong>${item.name}</strong> ${formatMoney(item.money)}`
+    main.appendChild(el)
+  });
+
+}
+
+// Format number as money
+function formatMoney(number){
+
+  return '$'+number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
 }
