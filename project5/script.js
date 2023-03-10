@@ -1,6 +1,11 @@
 const el = document.getElementById("main")
 const addBtn = document.getElementById("add-user")
 const CLICKED_CLASS = "clicked";
+const close = document.getElementById("close");
+const open = document.getElementById("open");
+const modal = document.getElementById("modal");
+
+
 
 function info() {
   fetch('https://jsonplaceholder.typicode.com/posts/')
@@ -22,7 +27,7 @@ addBtn.addEventListener('click', function () {
   const currentClass = addBtn.className;
 
   if (currentClass !== CLICKED_CLASS) {
-    
+
     info();
     addBtn.className = CLICKED_CLASS;
 
@@ -34,4 +39,9 @@ addBtn.addEventListener('click', function () {
   }
 
 
+})
+
+open.addEventListener("click", function () {
+
+  modal.style.display = "flex"
 })
