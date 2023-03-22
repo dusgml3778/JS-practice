@@ -22,21 +22,31 @@ getHtml()
       };
     });
 
-    CreateFile()
     const data = ulList.filter(n => n.title);
+
+    CreateFile(data)
     return data;
   })
   .then(res => log(res));
 
 
-function CreateFile() {
+function CreateFile(data) {
 
   var fs = require('fs');
-  var fileContent = "Hello World!";
   var filepath = "mynewfile.txt";
-  fs.writeFile(filepath, fileContent, (err) => {
-    if (err) throw err;
-    console.log("The file was succesfully saved!");
-  });
+  var fileContent = "";
+
+  for (let i = 0; i < data.length; i++) {
+
+    fileContent += `${data[i].title}` + "\n";
+
+    fs.writeFile(filepath, fileContent, (err) => {
+      if (err) throw err;
+
+    });
+
+  }
+
+  console.log("The file was succesfully saved!");
 
 }
