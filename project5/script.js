@@ -60,20 +60,34 @@ doubleBtn.addEventListener('click', function () {
   const els = document.createElement('input')
   els.setAttribute('type', 'text')
   els.setAttribute('id', 'searchVal')
-  const button = document.createElement('button')
-  button.setAttribute('id', 'searchId')
-  button.innerHTML = '아이디 입력'
+  const button0 = document.createElement('button')
+  button0.setAttribute('id', 'searchId')
+  button0.innerHTML = '아이디 입력'
+  const button1 = document.createElement('button')
+  button1.setAttribute('id', 'resetText')
+  button1.innerHTML = '초기화'
+
   el.append(els);
-  el.append(button);
+  el.append(button0);
+  el.append(button1);
 
   const searchVal = document.getElementById("searchVal")
   const searchId = document.getElementById("searchId")
+  const resetBtn = document.getElementById("resetText")
 
   searchId.addEventListener('click', function () {
 
     info(searchVal.value);
 
   })
+
+  resetBtn.addEventListener('click', function () {
+
+    el.innerHTML = "";
+
+  })
+
+
 })
 
 
